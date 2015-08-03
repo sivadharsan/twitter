@@ -3,7 +3,7 @@ app.controller('TwitterController', function($scope, $q, twitterService) {
 
     $scope.tweet;
 
-    $scope.tweets; 
+    $scope.tweets;
 
     $scope.followers;
 
