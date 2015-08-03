@@ -3,7 +3,7 @@ app.controller('TwitterController', function($scope, $q, twitterService) {
 
     $scope.tweet;
 
-    $scope.tweets; //array of tweets
+    $scope.tweets; 
 
     $scope.followers;
 
@@ -34,13 +34,14 @@ app.controller('TwitterController', function($scope, $q, twitterService) {
         tweet.text = $scope.tweet;
         tweet.user.name = "me";
         $scope.tweets.push(tweet);
-        //twitterService.updateStatus($scope.tweet).then(function(data) {
-        //});
+        twitterService.updateStatus($scope.tweet).then(function(data) {
+        });
     }
 
     $scope.signOut = function() {
         twitterService.clearCache();
         $scope.tweets.length = 0;
+        $scope.followers.length = 0;
         $('#getTimelineButton, #signOut').fadeOut(function(){
             $('#connectButton').fadeIn();
         });
